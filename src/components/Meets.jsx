@@ -19,7 +19,7 @@ const Meets = ({ title }) => {
   return (
     <div className="container">
       <hr />
-      {loading &&<p>Loading Events....</p>}
+      
       {error&&<p>Error: {error}</p>}
       <div className="d-flex justify-content-between align-items-center py-3">
       
@@ -67,7 +67,7 @@ const Meets = ({ title }) => {
             </div>
           ))
         ) : (
-          <p className="text-center">No events found</p>
+          <p className="text-center">{loading &&<p>Loading Events....</p>}</p>
         )}
       </div>
     </div>
