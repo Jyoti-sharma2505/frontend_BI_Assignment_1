@@ -8,11 +8,10 @@ const Meets = ({ title }) => {
     "https://backend-bi-assignment-1.vercel.app/meets"
   );
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+ console.log(data)
 
   const filteredMeets = data?.meet
-    ?.filter((meet) => (filter ? meet.type === filter : true))
+    ?.filter((meet) => (filter ? meet.eventType === filter : true))
     ?.filter((meet) =>
       title ? meet.title.toLowerCase().includes(title.toLowerCase()) : true
     );
@@ -20,7 +19,10 @@ const Meets = ({ title }) => {
   return (
     <div className="container">
       <hr />
+      {loading &&<p>Loading Events....</p>}
+      {error&&<p>Error: {error}</p>}
       <div className="d-flex justify-content-between align-items-center py-3">
+      
         <h2 className="container py-3">MeetUp Events</h2>
         <select
           className="form-select w-25 border-0 hover:bg-gray-100"
@@ -41,21 +43,21 @@ const Meets = ({ title }) => {
               <div className="card h-100 position-relative">
                 <Link to={`/meets/${meets._id}`}>
                   <img
-                    src={meets.thumbnail}
+                    src={meets.imageUrl}
                     className="card-img-top rounded"
                     alt="meet"
                   />
                 </Link>
                 <span
                   className={`position-absolute top-0 start-0 m-2 px-2 py-1 text-white rounded ${
-                    meets?.type === "Online Events"
+                    meets?.eventType === "Online Events"
                       ? "bg-success"
-                      : meets?.type === "Offline Events"
+                      : meets?.eventType === "Offline Events"
                       ? "bg-danger"
                       : "bg-secondary"
                   }`}
                 >
-                  {meets.type}
+                  {meets.eventType}
                 </span>
                 <div className="card-body">
                   <p>{meets.date}</p>
