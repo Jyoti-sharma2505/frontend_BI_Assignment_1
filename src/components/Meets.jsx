@@ -32,7 +32,6 @@ const Meets = ({ title }) => {
           <option value="">Select Event Tags</option>
           <option value="Online Events">Online Event</option>
           <option value="Offline Events">Offline Event</option>
-          <option value="Both Events">Both Event</option>
         </select>
       </div>
 
@@ -40,12 +39,14 @@ const Meets = ({ title }) => {
         {filteredMeets?.length > 0 ? (
           filteredMeets.map((meets) => (
             <div key={meets._id}>
-              <div className="card h-100 position-relative">
+              <div className="col">
+              <div className="card h-100 ">
                 <Link to={`/meets/${meets._id}`}>
                   <img
                     src={meets.imageUrl}
                     className="card-img-top rounded"
                     alt="meet"
+                     style={{height: "200px", objectFit: "cover"}}
                   />
                 </Link>
                 <span
@@ -59,10 +60,12 @@ const Meets = ({ title }) => {
                 >
                   {meets.eventType}
                 </span>
-                <div className="card-body">
-                  <p>{meets.date}</p>
-                  <h5 className="card-title">{meets.title}</h5>
+                <div></div>
+                <div className="card-body mb-2 fs-6 fw-normal ">
+                  <p>{meets.startTime}</p>
+                  <h5 className="card-title mb-0 fs-6 fw-semibold">{meets.title}</h5>
                 </div>
+              </div>
               </div>
             </div>
           ))

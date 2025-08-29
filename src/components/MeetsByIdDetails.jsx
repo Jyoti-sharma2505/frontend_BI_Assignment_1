@@ -100,9 +100,9 @@ const MeetsByIdDetails = () => {
                 <h5 class="card-title py-3">
                   Speakers: ({event?.speakers?.length})
                 </h5>
-                <div className="row row-cols-1 row-cols-md-2 g-2">
+                <div className="row g-4 justify-content-center">
                   {event?.speakers?.map((speaker) => (
-                    <div className="col">
+                    <div className="col-auto">
                       <div
                         className="card text-center border-0"
                         style={{ width: "12rem", height: "8rem" }}
