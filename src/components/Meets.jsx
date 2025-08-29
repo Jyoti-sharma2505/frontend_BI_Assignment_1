@@ -29,7 +29,7 @@ const Meets = ({ title }) => {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
-          <option value="">Select Event Tags</option>
+          <option value="">Both Event</option>
           <option value="Online Events">Online Event</option>
           <option value="Offline Events">Offline Event</option>
         </select>
